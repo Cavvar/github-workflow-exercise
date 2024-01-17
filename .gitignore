@@ -8,6 +8,7 @@ release.properties
 
 #
 target/*
+.idea/*
 
 # Eclipse
 .project
