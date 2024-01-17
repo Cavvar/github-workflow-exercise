@@ -4,13 +4,7 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - java-backend/**
-      - .github/workflows/backend-build.yaml
-  pull_request:
-    branches: [ "main" ]
-    paths:
-      - java-backend/**
-      - .github/workflows/backend-build.yaml
+      - .github/workflows/default-build.yaml
 
 jobs:
   build:
@@ -25,9 +19,9 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - name: Build with Maven
-        run: mvn -B package --file java-backend/pom.xml
+        run: mvn -B package
       - name: Archive jar
         uses: actions/upload-artifact@v4
         with:
           name: quarkus-app
-          path: java-backend/target/quarkus-app
+          path: target/quarkus-app
